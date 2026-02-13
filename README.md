@@ -15,6 +15,7 @@ This project is a web application for a transportation service, built with Next.
 
 ## Technologies Used
 
+
 Here are the main technologies and libraries used in this project:
 
 - **Next.js**
