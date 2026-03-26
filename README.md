@@ -4,7 +4,6 @@ This project is a web application for a transportation service, built with Next.
 
 # still in development
 
-
 # Characteristics
 
 - **User Authentication:** Login and registration management.
