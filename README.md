@@ -65,19 +65,36 @@ To configure and run the project locally, follow these steps:
 
 2.  **Install dependen:**
     ```bash
-    npm install
-    # o si usas pnpm
     pnpm install
     ```
 
 3.  **Configure environment variables:**
     Create a `.env` file in the project root and add your environment variables (e.g., API keys for Supabase, Firebase, and Google Maps)
 
+    ```bash
+# Maps Configuration
+  NEXT_PUBLIC_GEOAPIFY_API_KEY=
+  NEXT_PUBLIC_GOOGLE_API_KEY=
+
+# Next.js Configuration
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=http://localhost:3000
+
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SUPABASE_URL=
+
+
+ # RADIO DE ALNCANCE
+RADIO=40
+NEXT_PUBLIC_RADIO=40
+
+  ```
+
+```
 4.  **Run app:**
     ```bash
-    npm run dev
-    # o si usas pnpm
-    pnpm dev
+    pnpm run dev
     ```
 
     server will be running `http://localhost:3000`.
