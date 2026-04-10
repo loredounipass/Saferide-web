@@ -2,7 +2,6 @@
 
 This project is a web application for a transportation service, built with Next.js and a variety of modern technologies to deliver a smooth and robust user experience.
 
-# still in development
 
 # Characteristics
 
