@@ -71,7 +71,7 @@ To configure and run the project locally, follow these steps:
 3.  **Configure environment variables:**
     Create a `.env` file in the project root and add your environment variables (e.g., API keys for Supabase, Firebase, and Google Maps)
 
-# Maps Configuration
+**Maps Configuration**
 ```
   NEXT_PUBLIC_GEOAPIFY_API_KEY=
   NEXT_PUBLIC_GOOGLE_API_KEY=
