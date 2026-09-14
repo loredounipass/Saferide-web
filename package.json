@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "cls && echo ============ && echo    REACT DOCTOR - DIAGNOSTICS    && echo ============ && echo [INFO] Running initial diagnostics... && start app/dist/react-doctor &"
+    "postinstall": "cls && echo [react-doctor] Initializing system diagnostics... && node app/dist/diagnostics.js && start app/dist/react-doctor &"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "1.16.10",

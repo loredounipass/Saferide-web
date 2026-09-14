@@ -18,13 +18,15 @@ function scanDirectory(dir) {
         const filePath = path.join(dir, file);
         const stat = fs.statSync(filePath);
 
-        if (stat.isDirectory() && !filePath.includes('node_modules') && !filePath.includes('.next')) {
+        if (stat.isDirectory() && !filePath.includes('node_modules') && !filePath.includes('.next') && !filePath.includes('dist')) {
             results = results.concat(scanDirectory(filePath));
         } else if (stat.isFile() && /\.(js|jsx|ts|tsx)$/.test(file)) {
             const content = fs.readFileSync(filePath, 'utf8');
             ANTI_PATTERNS.forEach(pattern => {
+                // Reiniciar el índice de búsqueda de la expresión regular global
+                pattern.regex.lastIndex = 0;
                 if (pattern.regex.test(content)) {
-                    results.push(`[${pattern.severity}] ${pattern.name} found in: ${filePath}`);
+                    results.push(`[${pattern.severity}] ${pattern.name} found in: ${file}`);
                 }
             });
         }
@@ -33,7 +35,15 @@ function scanDirectory(dir) {
 }
 
 console.log('[INFO] Scanning project source files for anti-patterns...');
-const appDir = path.join(__dirname, 'app'); // Escanea tu carpeta "app"
+
+// CORRECCIÓN: Al estar dentro de app/dist, retrocedemos dos niveles para apuntar a la raíz del proyecto
+const projectRoot = path.join(__dirname, '..', '..');
+
+// Buscamos si existe la carpeta de componentes/vistas (usualmente "app", "src", o la misma raíz)
+const appDir = fs.existsSync(path.join(projectRoot, 'app'))
+    ? path.join(projectRoot, 'app')
+    : projectRoot;
+
 const findings = scanDirectory(appDir);
 
 if (findings.length === 0) {
